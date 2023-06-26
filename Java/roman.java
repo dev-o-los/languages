@@ -29,19 +29,23 @@ public class roman {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter num in Roman");
         String n = sc.nextLine();
+        sc.close();
         int total = 0;
         int s1 = 0;
         int s2 = 0;
         for (int i = 0; i < n.length(); i++) {
             s1 = getValueOfRomanDigit(n.charAt(i));
-            s2 = getValueOfRomanDigit(n.charAt(i + 1));
-
-            if (s1 > s2) {
-                total += s1 + s2;
+            if (i + 1 < n.length()) {
+                s2 = getValueOfRomanDigit(n.charAt(i + 1));
+                if (s1 >= s2) {
+                    total += s1;
+                } else {
+                    total -= s1;
+                }
             } else {
-                total += s2 - s1;
+                total += s1;
             }
         }
-        sc.close();
+        System.out.println(total);
     }
 }

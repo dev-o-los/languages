@@ -1,12 +1,16 @@
 const prompt = require("prompt-sync")({ sigint: true });
 
-console.log("Add Numbers");
+let randomNum = Math.round(Math.random() * 100) + 1;
 
-let number1 = parseFloat(prompt("Number 1: "));
-let number2 = parseFloat(prompt("Number 2: "));
+let guessNum = parseInt(prompt("Enter the guess number: "));
 
-console.log(add(number1, number2));
-
-function add(a, b) {
-  return a + b;
+while (guessNum != randomNum) {
+  if (guessNum > randomNum) {
+    console.log("Guess little lower number");
+  } else if (guessNum < randomNum) {
+    console.log("Guess little higher number");
+  }
+  guessNum = parseInt(prompt("Enter the guess number: "));
 }
+
+console.log("Hurray You won!!");

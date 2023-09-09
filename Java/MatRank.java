@@ -101,7 +101,8 @@ public class MatRank {
             int ele2 = mat[i][colno];
             if (ele2 > 0) {
                 System.out
-                        .println("R" + (i + 1) + " = " + (ele1 != 1 ? ele1 : "") + "R" + (i + 1) + " - " + ele2 + "R"
+                        .println("R" + (i + 1) + " = " + (ele1 != 1 ? ele1 : "") + "R" + (i + 1) + " - "
+                                + (ele2 != 1 ? ele2 : "") + "R"
                                 + (colno + 1));
                 list.add(ele1);
                 list.add(ele2);
@@ -113,7 +114,7 @@ public class MatRank {
                 list.clear();
             } else if (ele2 < 0) {
                 System.out.println("R" + (i + 1) + " = " + (ele1 != 1 ? ele1 : "") + "R" + (i + 1) + " + "
-                        + Math.abs(ele2) + "R" + (colno + 1));
+                        + (ele2 != 1 ? Math.abs(ele2) : "") + "R" + (colno + 1));
                 list.add(ele1);
                 list.add(ele2);
                 listofLists.add(List.copyOf(list));

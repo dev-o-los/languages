@@ -25,64 +25,55 @@ public class MatRank {
     }
 
     int[][] mat = {
-            { 1, 2, 0, 4 },
-            { 3, 3, 2, 1 },
-            { 0, 10, 3, -2 },
-            { 2, -3, -1, 5 },
+            { 0, 1, -3, -1 },
+            { 1, 0, 1, 1 },
+            { 3, 1, 0, 2 },
+            { 1, 1, -2, 0 },
     };
 
     public static void main(String[] args) {
         MatRank matRank = new MatRank();
+        matRank.echelonForm();
         matRank.findRank();
     }
 
-    void findRank() {
+    void echelonForm() {
         int row = mat.length;
-        // int col = mat[0].length;
-        int stepCounter = 1;
         printMat();
-        System.out.println();
 
         if (mat[0][0] != 1) {
             // get the row with one
             int rowWith1 = findRowWithElement1(row - 1);
-            System.out.println(rowWith1);
-            System.out.println("Swapping Row " + 1 + " with Row " + rowWith1);
+            System.out.println("Swapping Row " + 1 + " with Row " + (rowWith1 + 1));
             // swapping row
             if (rowWith1 != -1) {
                 swapRows(0, rowWith1);
-                stepCounter++;
                 printMat();
             }
         }
-        List<List<Integer>> list = expressionWriter(row, 0, 1, mat[0][0]);
-        System.out.println(list);
-        // System.out.println(list.get(1));
-        expressionExecutioner(list, stepCounter, 0);
-        stepCounter++;
+        for (int i = 0; i < 2; i++) {
+            List<List<Integer>> list = expressionWriter(row, i, i + 1, mat[i][i]);
+            // System.out.println(list);
+            expressionExecutioner(list, i + 1, i);
+            printMat();
+        }
+    }
 
-        System.out.println();
-        printMat();
-        System.out.println();
-
-        list = expressionWriter(row, 1, 2, mat[1][1]);
-        System.out.println(list);
-
-        expressionExecutioner(list, stepCounter, 1);
-
-        System.out.println();
-        printMat();
-        System.out.println();
-
-        list = expressionWriter(row, 2, 3, mat[2][2]);
-        System.out.println(list);
-
-        expressionExecutioner(list, stepCounter, 2);
-
-        System.out.println();
-        printMat();
-        System.out.println();
-
+    void findRank() {
+        int rank = 0;
+        for (int[] row : mat) {
+            boolean isNonZero = false;
+            for (int ele : row) {
+                if (ele != 0) {
+                    isNonZero = true;
+                    break;
+                }
+            }
+            if (isNonZero) {
+                rank++;
+            }
+        }
+        System.out.println("Rank of the given matrix is: " + rank);
     }
 
     void expressionExecutioner(List<List<Integer>> list, int stepCounter, int helperRowNo) {
@@ -151,12 +142,14 @@ public class MatRank {
     }
 
     void printMat() {
+        System.out.println();
         for (int i = 0; i < mat.length; i++) {
             for (int j = 0; j < mat[0].length; j++) {
                 System.out.print(mat[i][j] + " ");
             }
             System.out.println();
         }
+        System.out.println();
     }
 
 }

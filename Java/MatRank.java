@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class MatRank {
 
+    static int[][] mat = {};
+
     int[][] getDimension() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter number of rows:-");
@@ -16,23 +18,17 @@ public class MatRank {
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
+                System.out.println("Enter element" + '[' + i + ']' + '[' + j + ']' + ":-");
                 mat[i][j] = sc.nextInt();
             }
         }
         sc.close();
-
         return mat;
     }
 
-    int[][] mat = {
-            { 0, 1, -3, -1 },
-            { 1, 0, 1, 1 },
-            { 3, 1, 0, 2 },
-            { 1, 1, -2, 0 },
-    };
-
     public static void main(String[] args) {
         MatRank matRank = new MatRank();
+        mat = matRank.getDimension();
         matRank.echelonForm();
         matRank.findRank();
     }

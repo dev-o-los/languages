@@ -26,5 +26,4 @@ def download(url: str, fname: str, chunk_size=1024):
             bar.update(size)
 
 
-print(g)
-# download(y + l, f"{path}episode{13}.mp4")
+download(y + l, f"{path}episode{13}.mp4")

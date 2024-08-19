@@ -5,8 +5,9 @@ int main()
     int i, j, rows;
 
     // Number of rows for the pyramid
-    printf("Enter the number of rows: ");
-    scanf("%d", &rows);
+    // printf("Enter the number of rows: ");
+    // scanf("%d", &rows);
+    rows = 5;
 
     for (i = 1; i <= rows; i++)
     {

@@ -5,7 +5,7 @@ int main()
     int rows, i, j, space;
     rows = 5;
 
-    for (i = 1; i <= rows; ++i)
+    for (i = 1; i <= rows - 1; ++i)
     {
         // Print spaces and stars in a single loop
         for (j = 1; j <= rows; ++j)
@@ -20,7 +20,7 @@ int main()
     for (i = 1; i <= rows; ++i)
     {
         // Print spaces and stars in a single loop
-        for (j = 1; j <= rows - 1; ++j)
+        for (j = 1; j <= rows; ++j)
         {
             if (j < i)
                 printf("  ");

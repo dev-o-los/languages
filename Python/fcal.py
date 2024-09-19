@@ -103,8 +103,18 @@ def display_detailed_table(table_data, ref_value, moments, skewness, kurtosis):
 # Main function
 def main():
     # Sample input of class intervals and frequencies
-    class_intervals = [(2, 4), (4, 6), (6, 8), (8, 10), (10, 12)]
-    frequencies = [38, 292, 389, 212, 69]
+    class_intervals = [
+        (10, 15),
+        (15, 20),
+        (20, 25),
+        (25, 30),
+        (30, 35),
+        (35, 40),
+        (40, 45),
+        (45, 50),
+        (50, 55),
+    ]
+    frequencies = [1, 4, 8, 19, 35, 20, 7, 5, 1]
 
     # Step-by-step calculation
     midpoints = class_midpoints(class_intervals)

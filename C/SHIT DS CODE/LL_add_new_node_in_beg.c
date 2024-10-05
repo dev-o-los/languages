@@ -10,11 +10,14 @@ void addNodeInBegin(struct node *head, int data)
         head->data = data;
         head->next = NULL;
     }
+    else
+    {
+        struct node *ptr = malloc(sizeof(struct node));
+        ptr->data = data;
+        ptr->next = head;
+        head = ptr;
+    }
 
-    struct node *ptr = malloc(sizeof(struct node));
-    ptr->data = data;
-    ptr->next = head;
-    head = ptr;
     printlinkedlist(head);
 }
 

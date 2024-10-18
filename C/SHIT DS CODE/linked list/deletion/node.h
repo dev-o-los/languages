@@ -27,12 +27,12 @@ void addNewNodeInEnd(struct node *head, int data)
 {
     if (head == NULL)
     {
-        printf("Linked list is empty");
+        printf("Underflow (for del) or Overflow (for add) and stop");
     }
     struct node *ptr = NULL, *node = NULL;
     ptr = head;
 
-    node = (struct node *) malloc(sizeof(struct node));
+    node = (struct node *)malloc(sizeof(struct node));
     node->data = data;
     node->next = NULL;
 

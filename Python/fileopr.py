@@ -10,6 +10,19 @@ def count(filename):
         # return line_count, word_count, chr_count
 
 
-count("C:/Users/utk27/Documents/languages/Python/abc.txt")
+def onlynumbers(filename):
+    new = []
+    with open(filename, "r") as file:
+        content = file.read()
+        for word in content:
+            if word.isdigit():
+                new.append(word)
+            else:
+                continue
+
+    print(new)
+
+
+onlynumbers("C:/Users/utk27/Documents/languages/Python/abc.txt")
 
 # print(f"Lines: {lc} Words: {wc} Characrter: {cc} ")
